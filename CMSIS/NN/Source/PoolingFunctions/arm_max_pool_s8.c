@@ -102,16 +102,15 @@ clamp_output(q7_t *source, int32_t length, const int32_t act_min, const int32_t 
 #if defined(ARM_MATH_MVEI)
     int32_t
         loop_count = (length + 15) / 16;
+    const int8x16_t repl_min = vdupq_n_s8(act_min);
+    const int8x16_t repl_max = vdupq_n_s8(act_max);
     for (int i = 0; i < loop_count; i++)
     {
         mve_pred16_t p = vctp16q((uint32_t)length);
         length -= 16;
         const int8x16_t src = vldrbq_z_s8(source, p);
-        const int8x16_t predicated_min = vdupq_m_n_s8(vuninitializedq_s8(), (int8_t)act_min, p);
-        const int8x16_t predicated_max = vdupq_m_n_s8(vuninitializedq_s8(), (int8_t)act_max, p);
-        int8x16_t
-            res = vmaxq_m_s8(vuninitializedq_s8(), src, predicated_min, p);
-        res = vminq_m_s8(vuninitializedq_s8(), src, predicated_max, p);
+        int8x16_t res = vmaxq_m_s8(vuninitializedq_s8(), src, repl_min, p);
+        res = vminq_m_s8(vuninitializedq_s8(), res, repl_max, p);
         vstrbq_p_s8(source, res, p);
         source += 16;
     }
