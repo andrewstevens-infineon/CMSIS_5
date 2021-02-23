@@ -67,10 +67,8 @@ extern "C"
 #elif defined (__GNUC_PYTHON__)
 #include <stdint.h>
 #define  __ALIGNED(x) __attribute__((aligned(x)))
-#define __STATIC_FORCEINLINE static __attribute__((inline))
-#define __STATIC_INLINE static __attribute__((inline))
-#pragma GCC diagnostic ignored "-Wunused-function"
-#pragma GCC diagnostic ignored "-Wattributes"
+#define __STATIC_FORCEINLINE static inline __attribute__((always_inline)) 
+#define __STATIC_INLINE static inline
 
 #else
 #include "cmsis_compiler.h"
@@ -110,10 +108,7 @@ extern "C"
     #define ARM_MATH_MVEF
   #endif
   #if !defined(ARM_MATH_MVE_FLOAT16)
-  /* HW Float16 not yet well supported on gcc for M55 */
-    #if !defined(__CMSIS_GCC_H)
        #define ARM_MATH_MVE_FLOAT16
-    #endif
   #endif
 #endif
 
@@ -130,10 +125,7 @@ extern "C"
   #endif
 
   #if !defined(ARM_MATH_MVE_FLOAT16)
-    /* HW Float16 not yet well supported on gcc for M55 */
-    #if !defined(__CMSIS_GCC_H)
        #define ARM_MATH_MVE_FLOAT16
-    #endif
   #endif
 #endif
 

@@ -17,13 +17,16 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 
-  $Date:        13. Nov 2020
-  $Revision:    1.7.1
+  $Date:        1. Dec 2020
+  $Revision:    1.7.2
 
   $Project: Schema File for Package Description File Format Specification
 
   Package file name convention <vendor>.<name>.<version>.pack
-  SchemaVersion=1.7.1
+  SchemaVersion=1.7.2
+  
+  1. December 2020: v1.7.2
+   - added 'XC' to CompilerEnumType to enable use of Microchip XC32 compiler 
 
   13. November 2020: v1.7.1
   - undo removing deprecated attributes as they are still used in latest pdsc file versions:
@@ -147,6 +150,7 @@
       <xs:enumeration value="ABOV Semiconductor:126" />
       <xs:enumeration value="Actel:56" />
       <xs:enumeration value="Active-Semi:140" />
+      <xs:enumeration value="Alif Semiconductor:165" />
       <xs:enumeration value="Altera:85" />
       <xs:enumeration value="Altium:65" />
       <xs:enumeration value="Ambiq Micro:120" />
@@ -170,6 +174,7 @@
       <xs:enumeration value="Ember:98" />
       <xs:enumeration value="Energy Micro:97" />
       <xs:enumeration value="EnOcean:91" />
+      <xs:enumeration value="e-peas semiconductors:167" />
       <xs:enumeration value="EtaCompute:157" />
       <xs:enumeration value="Evatronix:64" />
       <xs:enumeration value="Geehy:163" />
@@ -211,6 +216,7 @@
       <xs:enumeration value="Renesas:117" />
       <xs:enumeration value="ROHM:103" />
       <xs:enumeration value="Samsung:47" />
+      <xs:enumeration value="SILAN:164" />
       <xs:enumeration value="Silergy Corp:139" />
       <xs:enumeration value="Silicon Labs:21" />
       <xs:enumeration value="Sinowealth:149" />
@@ -228,6 +234,7 @@
       <xs:enumeration value="Vorago:137" />
       <xs:enumeration value="Weltrend:148" />
       <xs:enumeration value="WIZnet:122" />
+      <xs:enumeration value="Xiamen PengPai Microelectronics Co. Ltd:166" />
       <xs:enumeration value="Xinnova:135" />
       <xs:enumeration value="XMC:158" />
       <xs:enumeration value="Zilog:89" />
@@ -1088,6 +1095,7 @@
       <xs:enumeration value="GHS" />
       <xs:enumeration value="Cosmic" />
       <xs:enumeration value="G++"/> <!-- Code Sourcery -->
+      <xs:enumeration value="XC"/> <!-- Microchip MPLAB XC32 -->
       <xs:enumeration value="*" />
     </xs:restriction>
   </xs:simpleType>

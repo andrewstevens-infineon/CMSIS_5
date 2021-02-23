@@ -3922,11 +3922,17 @@ if (PyArg_ParseTupleAndKeywords(args, kwds, "|i", kwlist,&self->instance->numSta
 
 GETFIELD(arm_biquad_cascade_df2T_instance_f32,numStages,"i");
 
+static PyObject *                                                             
+Method_arm_biquad_cascade_df2T_instance_f32_state(ml_arm_biquad_cascade_df2T_instance_f32Object *self, PyObject *ignored)
+{                
+    float32_t *state=self->instance->pState;
+    return(NumpyVectorFromf32Buffer(state,self->instance->numStages * 2));                                                  
+} 
 
 static PyMethodDef arm_biquad_cascade_df2T_instance_f32_methods[] = {
 
     {"numStages", (PyCFunction) Method_arm_biquad_cascade_df2T_instance_f32_numStages,METH_NOARGS,"numStages"},
-
+    {"state", (PyCFunction) Method_arm_biquad_cascade_df2T_instance_f32_state,METH_NOARGS,"state"},
     {NULL}  /* Sentinel */
 };
 
@@ -7914,7 +7920,7 @@ cmsis_arm_rfft_f32(PyObject *obj, PyObject *args)
 
 
     arm_rfft_f32(selfS->instance,pSrc_converted,pDst);
- FLOATARRAY1(pDstOBJ,2*selfS->instance->fftLenReal,pDst);
+ FLOATARRAY1(pDstOBJ,selfS->instance->fftLenReal+1,pDst);
 
     PyObject *pythonResult = Py_BuildValue("O",pDstOBJ);
 
@@ -8412,11 +8418,11 @@ cmsis_arm_rfft_fast_f32(PyObject *obj, PyObject *args)
     ml_arm_rfft_fast_instance_f32Object *selfS = (ml_arm_rfft_fast_instance_f32Object *)S;
     GETARGUMENT(p,NPY_DOUBLE,double,float32_t);
 
-    pOut=PyMem_Malloc(sizeof(float32_t)*2*selfS->instance->fftLenRFFT);
+    pOut=PyMem_Malloc(sizeof(float32_t)*(selfS->instance->fftLenRFFT));
 
 
     arm_rfft_fast_f32(selfS->instance,p_converted,pOut,(uint8_t)ifftFlag);
- FLOATARRAY1(pOutOBJ,2*selfS->instance->fftLenRFFT,pOut);
+ FLOATARRAY1(pOutOBJ,(selfS->instance->fftLenRFFT),pOut);
 
     PyObject *pythonResult = Py_BuildValue("O",pOutOBJ);
 

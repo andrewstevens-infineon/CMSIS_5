@@ -1919,6 +1919,11 @@ Contact cmsis@arm.com to ask for an extension. These values can be used in the e
     <td>http://www.active-semi.com</td>
   </tr>
   <tr>
+    <td class="XML-Token">Alif Semiconductor:165</td>
+    <td>Alif Semiconductor</td>
+    <td>http://www.alifsemi.com</td>
+  </tr>
+  <tr>
     <td class="XML-Token">Ambiq Micro:120</td>
     <td>Ambiq Micro</td>
     <td>http://www.ambiqmicro.com</td>
@@ -1992,6 +1997,11 @@ Contact cmsis@arm.com to ask for an extension. These values can be used in the e
     <td class="XML-Token">Elmos Semiconductor AG:138</td>
     <td>Elmos Semiconductor AG</td>
     <td>http://www.elmos.com</td>
+  </tr>
+  <tr>
+    <td class="XML-Token">e-peas semiconductors:167</td>
+	<td>e-peas semicondcutors</td>
+	<td>https://e-peas.com</td>
   </tr>
   <tr>
     <td class="XML-Token">EtaCompute:157</td>
@@ -2149,6 +2159,11 @@ Contact cmsis@arm.com to ask for an extension. These values can be used in the e
     <td>http://www.samsung.com</td>
   </tr>
   <tr>
+    <td class="XML-Token">SILAN:164</td>
+    <td>Hangzhou Silan Microelectronics Co., Ltd.</td>
+    <td>http://www.silan.com.cn/</td>
+  </tr>
+  <tr>
     <td class="XML-Token">Silergy Corp:139</td>
     <td>Silergy Corporation</td>
     <td>http://silergy.com/</td>
@@ -2217,6 +2232,11 @@ Contact cmsis@arm.com to ask for an extension. These values can be used in the e
     <td class="XML-Token">WIZnet:122</td>
     <td>WIZnet</td>
     <td>http://www.wiznet.co.kr</td>
+  </tr>
+  <tr>
+    <td class="XML-Token">Xiamen PengPai Microelectronics Co. Ltd:166</td>
+    <td>Pai IC</td>
+    <td>https://www.pai-ic.com</td>
   </tr>
   <tr>
     <td class="XML-Token">Xinnova:135</td>

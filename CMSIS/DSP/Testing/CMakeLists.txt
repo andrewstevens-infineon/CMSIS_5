@@ -156,6 +156,7 @@ set (NNSRC
    Source/Benchmarks/ComplexMathsBenchmarksF32.cpp
    Source/Benchmarks/ComplexMathsBenchmarksQ31.cpp
    Source/Benchmarks/ComplexMathsBenchmarksQ15.cpp
+   Source/Benchmarks/QuaternionMathsBenchmarksF32.cpp
    Source/Benchmarks/BayesF32.cpp
    Source/Benchmarks/SVMF32.cpp
    Source/Benchmarks/DistanceF32.cpp
@@ -249,6 +250,11 @@ if (BASICMATH)
   Source/Tests/BasicTestsQ7.cpp)
 endif()
 
+if (QUATERNIONMATH)
+  set(QUATERNIONMATHSRC Source/Tests/QuaternionTestsF32.cpp
+  )
+endif()
+
 if (COMPLEXMATH)
   set(COMPLEXMATHSRC Source/Tests/ComplexTestsF32.cpp
   Source/Tests/ComplexTestsQ31.cpp
@@ -336,6 +342,13 @@ if (DISTANCE)
   Source/Tests/DistanceTestsU32.cpp)
 endif()
 
+if (INTERPOLATION)
+  set(INTERPOLATIONSRC Source/Tests/InterpolationTestsF32.cpp
+     Source/Tests/InterpolationTestsQ31.cpp
+     Source/Tests/InterpolationTestsQ15.cpp
+     Source/Tests/InterpolationTestsQ7.cpp)
+endif()
+
 set(TESTSRC 
      ${BASICMATHSRC}
      ${COMPLEXMATHSRC}
@@ -349,14 +362,12 @@ set(TESTSRC
      ${SVMSRC}
      ${BAYESSRC}
      ${DISTANCESRC}
-     Source/Tests/InterpolationTestsF32.cpp
-     Source/Tests/InterpolationTestsQ31.cpp
-     Source/Tests/InterpolationTestsQ15.cpp
-     Source/Tests/InterpolationTestsQ7.cpp
-     Source/Tests/ExampleCategoryF32.cpp
-     Source/Tests/ExampleCategoryQ31.cpp
-     Source/Tests/ExampleCategoryQ15.cpp
-     Source/Tests/ExampleCategoryQ7.cpp
+     ${QUATERNIONMATHSRC}
+     ${INTERPOLATIONSRC}
+     #Source/Tests/ExampleCategoryF32.cpp
+     #Source/Tests/ExampleCategoryQ31.cpp
+     #Source/Tests/ExampleCategoryQ15.cpp
+     #Source/Tests/ExampleCategoryQ7.cpp
   )
 
 

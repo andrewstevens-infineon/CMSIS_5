@@ -45,9 +45,18 @@
    * - Support Vector Machine functions (SVM)
    * - Bayes classifier functions
    * - Distance functions
+   * - Quaternion functions
    *
    * The library has generally separate functions for operating on 8-bit integers, 16-bit integers,
    * 32-bit integer and 32-bit floating-point values.
+   *
+   * The library is providing vectorized versions of most algorthms for Helium
+   * and of most f32 algorithms for Neon.
+   *
+   * When using a vectorized version, provide a little bit of padding after the end of
+   * a buffer (3 words) because the vectorized code may read a little bit after the end
+   * of a buffer. You don't have to modify your buffers but just ensure that the
+   * end of buffer + padding is not outside of a memory region.
    *
    * \section using Using the Library
    *
@@ -152,7 +161,9 @@
    * - DISABLEFLOAT16:
    *
    * Disable float16 algorithms when __fp16 is not supported for a
-   * specific compiler / core configuration
+   * specific compiler / core configuration.
+   * This is only valid for scalar. When vector architecture is
+   * supporting f16 then it can't be disabled.
    *
    * <hr>
    * \section pack CMSIS-DSP in ARM::CMSIS Pack
@@ -215,6 +226,7 @@
 #include "dsp/fast_math_functions.h"
 #include "dsp/transform_functions.h"
 #include "dsp/filtering_functions.h"
+#include "dsp/quaternion_math_functions.h"
 
 
 
